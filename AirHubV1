@@ -1,0 +1,88 @@
+-- GUI By AirScripts
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Hub Loaded";
+    Text = "Air Hub V1 Was Loaded!"; -- what the text says (ofc)
+    Duration = 25;
+})
+
+local Screengui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local title = Instance.new("TextLabel")
+local Button1 = Instance.new("TextButton")
+local Button2 = Instance.new("TextButton")
+local close = Instance.new("TestButton")
+local openmain = Instance.new("Frame")
+local open = Instance.new("TextButton")
+--Properties:
+ScreenGui.Parent = Game.CoreGui
+
+main.Name "main*
+main.Parent = ScreenGui
+main.BackgroundColor3 = Colour3.new(0,  0,  0)
+main.Position = UDim2.new(0.0203577988, 0, 0.641277611, 0)
+main.Size = UDim2.new(0, 332, 0, 211)
+main.Visible = false
+main.Active = true
+main.Draggable = true
+
+title.Name = "title"
+title.Parent = main
+title.BackgroundColor = Color3.new(1, 0, 1)
+title.Size = UDim2.new(0, 332, 0, 31)
+title.Font = Enum.Font.GothamBold
+title.Text = "Air Hub V1"
+title.TextColor3 = Color3.new(0, 0, 0)
+title.TextSize = 14
+
+--VapeV4
+loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+
+--InfJumps
+local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+
+--Keyboard
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/manimcool21/Keyboard-FE/main/Protected%20(3).lua'),true))()
+
+close.Name = "close"
+close.Parent = main
+close.BackgroundColor3 = Color3.new(1, 0, 0)
+close.Position = UDim2.new(0.879518092, 0, 0, 0)
+close.Size = UDim2.new(0, 40, 0, 31)
+close.Font = Enum.Font.GothamBlack
+close.Text = "X"
+close.TextColor3 = Color3.new(0, 0, 0)
+close.TextScaled = true
+close.TextSize = 14
+close.TextWrapped = true
+close.MouseButton1Down:connect(function()
+main.Visible = false
+openmain.Visible = true
+end)
+
+openmain.Name = "openmain"
+openmain.Parent = ScreenGui
+openmain.BackgroundColor3 = Color3.new(1, 1, 1)
+openmain.Position = UDim2.new(0.00801973976, 0, 0.423832953, 0)
+openmain.Size = UDim2.new(0, 100, 0, 28)
+openmain.Active = true
+openmain.Draggable = true
+
+open.Name = "open"
+open.Parent = openmain
+open.BackgroundColor3 = Color3.new(1, 0, 0)
+open.Size = UDim2.new(0, 100, 0, 28)
+open.Font = Enum.Font.GothamBold
+open.Text = "Open"
+open.TextColor3 = Color3.new(0, 0, 0)
+open.TextSize = 18
+open.TextWrapped = true
+open.MouseButton1Down:connect(function()
+openmain.Visible = false
+main.Visible = true
+end)
